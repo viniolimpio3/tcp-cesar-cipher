@@ -4,7 +4,7 @@ from cesar_cipher import CesarCipher
 from DiffieHellman import DiffieHellman
 
 
-n = 17  # número primo
+n = 100000007  # número primo
 g = 5   # base
 df = DiffieHellman(n, g)
 
@@ -25,10 +25,7 @@ server_x = int(clientSocket.recv(1024).decode('utf-8'))
 # Computa chave compartilhada
 shared_key = df.compute_shared_key(other_x=server_x)
 
-
-
-# Usa a chave compartilhada para o cifrador César
-cs = CesarCipher(shared_key)
+cs = CesarCipher()
 
 sentence = cs.cript(input("Input lowercase sentence: "))
 

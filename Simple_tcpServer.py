@@ -27,8 +27,7 @@ connectionSocket.send(str(r).encode('utf-8'))
 # Computa chave compartilhada
 shared_key = df.compute_shared_key(other_x=client_x)
 
-# Usa a chave compartilhada para o cifrador César
-cs = CesarCipher(shared_key)
+cs = CesarCipher()
 
 sentence = connectionSocket.recv(65000)
 
