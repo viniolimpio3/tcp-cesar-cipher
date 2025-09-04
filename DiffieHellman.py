@@ -1,26 +1,35 @@
 from random import randint
+from Primos import Primos
+
 class DiffieHellman: 
-    def diffie_hellman():
+
+    def __init__(self, n, g):
+        self.n = n
+        self.g = g
+
+    def implement(self):
         """
             Implementa o algoritmo Diffie-Hellman para troca de chaves
             Retorna: (n, g, private_key, public_key)
         """
-        
-        # Parâmetros públicos (devem ser os mesmos para cliente e servidor)
-        n = 23  # número primo
-        g = 5   # base primitiva módulo n
 
         # Chave privada aleatória
-        private_key = randint(1, n-1)
+        self.x = randint(1, self.n-1)
 
-        # Chave pública = g^private_key mod n
-        public_key = pow(g, private_key, n)
-        
-        return n, g, private_key, public_key
+        print("X escolhido:", self.x)
 
-    def compute_shared_key(other_public_key, my_private_key, n):
+        # Chave pública = g^r mod n
+        r = pow(self.g, self.x, self.n)
+        print("R calculado:", r)
+
+        return self.x, r
+
+    def compute_shared_key(self, other_x):
         """
         Computa a chave compartilhada
-        shared_key = other_public_key^my_private_key mod n
+        shared_key = other_x^self.x mod self.n
         """
-        return pow(other_public_key, my_private_key, n)
+        print("Other_x recebido:", other_x)
+        shared_key = pow(other_x, self.x, self.n)
+        print("Chave compartilhada calculada:", shared_key)
+        return shared_key
