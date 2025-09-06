@@ -9,7 +9,7 @@ n = 100000007  # número primo
 g = 5   # base
 df = DiffieHellman(n, g)
 
-x, r = df.implement()
+r = df.implement()
 
 serverPort = 1300
 serverSocket = socket(AF_INET,SOCK_STREAM)

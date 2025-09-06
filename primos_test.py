@@ -20,7 +20,6 @@ def test_slow(n):
 
 # N Primo
 n = 100000007
-# n = 100000007 # N não primo
 
 print(f"Testando primalidade de {n} com 2 threads...")
 print("-" * 50)

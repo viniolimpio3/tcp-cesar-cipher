@@ -9,7 +9,7 @@ g = 5   # base
 df = DiffieHellman(n, g)
 
 # Gera chaves Diffie-Hellman
-x, r  = df.implement()
+r  = df.implement()
 
 serverName = "10.1.70.16"
 serverPort = 1300

@@ -22,7 +22,7 @@ class DiffieHellman:
         r = pow(self.g, self.x, self.n)
         print("R calculado:", r)
 
-        return self.x, r
+        return r
 
     def compute_shared_key(self, other_x):
         """
